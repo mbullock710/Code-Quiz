@@ -1,15 +1,4 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-tr {
-    border-bottom: 1px solid #ddd;
-}
-
-td {
-    text-align: center;
-}
+/* CSS for index.html */
 
 .align-left {
     text-align: left;
@@ -55,3 +44,22 @@ td {
     display: flex;
     flex-direction: column;
 }
+
+/* CSS for index.html Ends */
+
+/* CSS for score.html */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    text-align: center;
+}
+
+/* CSS for score.html Ends */

@@ -119,7 +119,7 @@ function checkAnswer(answer) {
         displayQuestions()
     } else {
         index++
-        time = time - 10
+        time -= 10
         displayQuestions()
     }
 }
