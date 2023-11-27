@@ -20,7 +20,8 @@ THEN I can save my initials and my score
 
 ## Screenshot of Webpage
 
-
+![_C__Users_MichaelBullock_bootcamp_Challenges_Code-Quiz_index html](https://github.com/mbullock710/Code-Quiz/assets/148500556/34f2e9c0-11a6-4913-b91d-17d43eaa244c)
 
 ## Link to Deployed Application
 
+https://mbullock710.github.io/Code-Quiz/
