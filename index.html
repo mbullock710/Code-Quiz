@@ -8,21 +8,15 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Coding Quiz Challenge</title>
 </head>
-<header>
-    <nav class="align-left">
-        
-        <h3>Timer: <span id="time">60</span> seconds remaining</h3>
-        <button class="align-right btn"><a href="score.html">Highscores</a></button>
-    
-    </nav>
-   
-        
 
+<header class="align-left">
+    <h3>Timer: <span id="time">60</span> seconds remaining</h3>
+    <a href="score.html"><h3>Highscores</h3></a>
 </header>
 
 <body>
     <div class="container">
-        <div id="hiding" class="flex-column flex-center">
+        <div id="hiding">
             <h1>Coding Quiz Challenge</h1>
             <hr />
             <h3 class="padding">Are you ready for the coding quiz challenge? Select "Start Quiz" when you are ready!
@@ -31,73 +25,19 @@
         </div>
 
         <div id="question-container" class="hide">
-            <div id="question" class="question-class">Question</div>
-            <div id="answer-buttons">
-              
-            </div>
+            <div id="question" class="question-class"></div>
+            <div id="answer-buttons"></div>
         </div>
 
-        <form class=" form hide" >
+        <form class="form hide">
             <h2>You Scored : <span id="score"></span></h2>
             <input type="text" id="initials-input" placeholder="Enter your initials">
-            <button class="btn" id="submit-btn">Submit</button>
+            <button id="submit-btn">
+                <h3>Submit</h3>
+            </button>
         </form>
-       
     </div>
-
-
-
-
-
-
-
-
-                <!-- <div class="container">
-        <div id="home" class="flex-column flex-center">
-            <div id="question-container" class="hide">
-                <div id="question">Question</div>
-                <div id="answer-buttons">
-                    <button class="btn">Answer 1</button>
-                    <button class="btn">Answer 2</button>
-                    <button class="btn">Answer 3</button>
-                    <button class="btn">Answer 4</button>
-                </div>
-                <h1>Coding Quiz Challenge</h1>
-                <hr />
-                <h3 class="padding">Are you ready for the coding quiz challenge? Select "Start Quiz" when you are ready!
-                </h3>
-                <button class="margin" id="start-button">Start Quiz</button>
-            </div>
-        </div>
-    </div> -->
-
-
-
-
-                <!-- <input class="margin" type="button" value="Start Quiz" onclick="Id=setInterval('startTimer()', 1000)" /> -->
-
-
-
-
-
-
-
-
-                <!-- </div>
-    </div>
-    <div class="controls">
-        <button id = "start-button" class = "start-button btn">Start</button>
-        <button id = "next-button" class = "start-button btn hide">Next</button>
-    </div> -->
-
-
-
-
-
-
-
-
-                <script src="./assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>

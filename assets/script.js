@@ -1,127 +1,152 @@
-
+// Defining Global Variables
 
 const questions = [
     {
         question: "What does the abbreviation, CSS, mean?",
         answers: [
             "Cascading Style Sheets",
-             "Computer Style Sheets",
-             "Computaional Style Sheets",
+            "Computer Style Sheets",
+            "Computational Style Sheets",
             "Cursive Style Sheets",
         ],
-        correct:"Cascading Style Sheets"
+        correct: "Cascading Style Sheets"
     },
     {
         question: "What does the abbreviation, HTML, mean?",
         answers: [
             "HyperText Markup Language",
-            "HotText Makeup Language", 
-            "HoverTitle Makeup Language", 
-            "Horchata Tea Milk Latte", 
+            "HotText Makeup Language",
+            "HoverTitle Makeup Language",
+            "Horchata Tea Milk Latte",
         ],
-        correct:"HyperText Markup Language"
+        correct: "HyperText Markup Language"
 
     },
     {
         question: "Which of the following below is a programming language?",
         answers: [
-            "Spacey", 
+            "Spacey",
             "Javascript",
-            "GroundFloor", 
-            "PicutreFrame", 
+            "GroundFloor",
+            "PicutreFrame",
         ],
-        correct:"Javascript"
+        correct: "Javascript"
 
     },
     {
         question: "What is an example of a Code Editor",
         answers: [
-            "Yoga Flow", 
-            "Bearing Gifts", 
+            "Yoga Flow",
+            "Bearing Gifts",
             "Visual Studio Code",
-            "Forget Me Not", 
+            "Forget Me Not",
         ],
-        correct:"Visual Studio Code"
+        correct: "Visual Studio Code"
     }
 ];
 
 const startButton = document.getElementById('start-button')
-const headers = document.getElementById ('hiding')
-const questionContainerElement = document.getElementById ('question-container')
+const headers = document.getElementById('hiding')
+const questionContainerElement = document.getElementById('question-container')
 const questionEl = document.getElementById('question')
 const answerButtonsEl = document.getElementById('answer-buttons')
-const timeEL= document.getElementById("time")
-const formEl= document.querySelector(".form")
-const userInput= document.getElementById("initials-input")
-const submitBtn= document.getElementById("submit-btn")
-const scoreEl= document.getElementById("score")
+const timeEL = document.getElementById("time")
+const formEl = document.querySelector(".form")
+const userInput = document.getElementById("initials-input")
+const submitBtn = document.getElementById("submit-btn")
+const scoreEl = document.getElementById("score")
 
-let index=0;
-let score=0
-let time= 60
+let index = 0;
+let score = 0
+let time = 60
 let timer;
-let highScoreArr=[]
+let highScoreArr = []
+
+// Defining Global Variables Ends
+
+// Start Code-Quiz Function
 
 function startGame() {
     headers.classList.add('hide')
     questionContainerElement.classList.remove('hide')
     displayQuestions()
     startTimer()
-   }
+}
 
-function displayQuestions(){
-    if(index === questions.length){
+// Start Code-Quiz Function Ends
+
+// Display Questions Function
+
+function displayQuestions() {
+    if (index === questions.length) {
         endQuiz()
     }
 
-    questionEl.textContent=questions[index].question
-        answerButtonsEl.innerHTML=""
+    questionEl.textContent = questions[index].question
+    answerButtonsEl.innerHTML = ""
     for (let i = 0; i < questions[index].answers.length; i++) {
-        const btn= document.createElement("button")
+        const btn = document.createElement("button")
         btn.setAttribute("class", "btn")
-        btn.textContent=questions[index].answers[i]
+        btn.textContent = questions[index].answers[i]
         answerButtonsEl.append(btn)
-        
+
     }
+
+// Display Questions Function Ends
+
+// Start Timer Function
+
 }
-function startTimer(){
-
-    timer=setInterval(function(){
+function startTimer() {
+    timer = setInterval(function () {
         time--
-        timeEL.textContent=time
+        timeEL.textContent = time
 
-        if(time == 0){
+        if (time == 0) {
             endQuiz()
         }
-    },1000)
+    }, 1000)
 }
 
-function checkAnswer(answer){
-    if(answer === questions[index].correct){
+// Start Time Function Ends
+
+// Check Answer Function
+
+function checkAnswer(answer) {
+    if (answer === questions[index].correct) {
         index++
         score++
         displayQuestions()
-    }else{
+    } else {
         index++
+        time = time - 10
         displayQuestions()
     }
 }
 
-function endQuiz(){
+// Check Answer Function Ends
+
+// End Quiz Function 
+
+function endQuiz() {
     clearInterval(timer)
     questionContainerElement.classList.add("hide")
     formEl.classList.remove("hide")
-    scoreEl.textContent=score
+    scoreEl.textContent = score
 }
 
-function storage(initials){
-    highScoreArr= JSON.parse(localStorage.getItem("highScores")) || []
+// End Quiz Function Ends
 
-    if(initials !== ""){
+// Store Initials and Highscore Function
 
-        const user={
+function storage(initials) {
+    highScoreArr = JSON.parse(localStorage.getItem("highScores")) || []
+
+    if (initials !== "") {
+
+        const user = {
             initials: initials,
-            score:score
+            score: score
         }
 
         highScoreArr.push(user)
@@ -130,16 +155,29 @@ function storage(initials){
     }
 }
 
+// Store Initials and Highscore Function Ends
+
+// Start Quiz Button
 
 startButton.addEventListener('click', startGame);
 
-answerButtonsEl.addEventListener('click', ()=>{
-    let userChoice= this.event.target.textContent
+// Start Quiz Button Ends
+
+// Answer Question Verification
+
+answerButtonsEl.addEventListener('click', () => {
+    let userChoice = this.event.target.textContent
     checkAnswer(userChoice);
 })
 
-submitBtn.addEventListener("click", (e)=>{
+// Answer Question Verification Ends
+
+// Log Initials and Highscore Function
+
+submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    const userInitials=userInput.value
+    const userInitials = userInput.value
     storage(userInitials);
 })
+
+// Log Initials and Highscore Function Ends
